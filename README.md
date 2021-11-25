@@ -56,4 +56,4 @@ git clone https://github.com/michael21910/cpp-data-structure-implementation.git
 * check out the results!
     
 ## LICENSE
-[MIT](LICENSE) © Tsuen Hsueh
+[Apache License 2.0](LICENSE) © Tsuen Hsueh
