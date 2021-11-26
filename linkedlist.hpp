@@ -9,12 +9,13 @@ public:
     void insert(int data, int n);
     void insertFromHead(int data);
     void insertFromTail(int data);
-    void remove(int n);
-    void removeFromHead();
-    void removeFromTail();
+    int remove(int n);
+    int removeFromHead();
+    int removeFromTail();
     void reverse();
     void print();
     void printReverse();
+    Node* getHead();
     int getSize();
     void setSize(int _size);  
 protected:
@@ -59,7 +60,7 @@ void LinkedList::insert(int data, int n) {
     newNode -> setPrev(temp);
     temp -> setNext(newNode);
     temp -> getNext() -> setPrev(newNode);
-    setSize(size + 1);
+    setSize(getSize() + 1);
     return;
 }
 
@@ -74,7 +75,7 @@ void LinkedList::insertFromHead(int data) {
         head -> setPrev(newNode);
         head = newNode;
     }
-    setSize(size + 1);
+    setSize(getSize() + 1);
 }
 
 void LinkedList::insertFromTail(int data) {
@@ -88,54 +89,61 @@ void LinkedList::insertFromTail(int data) {
         tail -> setNext(newNode);
         tail = newNode;
     }
-    setSize(size + 1);
+    setSize(getSize() + 1);
 }
 
-void LinkedList::remove(int n) {
+int LinkedList::remove(int n) {
     if (n < 0 || n >= size) {
-        return;
+        return -1;
     }
     if (n == 0) {
-        removeFromHead();
-        return;
+        int returnValue = removeFromHead();
+        return returnValue;
     }
     if (n == size - 1) {
-        removeFromTail();
-        return;
+        int returnValue = removeFromTail();
+        return returnValue;
     }
     Node* temp = head;
     for (int i = 0; i < n; i++) {
         temp = temp -> getNext();
     }
+    int returnValue = temp -> getData();
     temp -> getPrev() -> setNext(temp -> getNext());
     temp -> getNext() -> setPrev(temp -> getPrev());
     delete temp;
     setSize(size - 1);
-    return;
+    return returnValue;
 }
 
-void LinkedList::removeFromHead() {
+int LinkedList::removeFromHead() {
     if (head == nullptr) {
-        return;
+        return -1;
     }
     Node* temp = head;
+    int returnValue = temp -> getData();
     head = head -> getNext();
-    head -> setPrev(nullptr);
+    if (head != nullptr) {
+        head -> setPrev(nullptr);
+    }
     delete temp;
     setSize(size - 1);
-    return;
+    return returnValue;
 }
 
-void LinkedList::removeFromTail() {
+int LinkedList::removeFromTail() {
     if (tail == nullptr) {
-        return;
+        return -1;
     }
     Node* temp = tail;
+    int returnValue = temp -> getData();
     tail = tail -> getPrev();
-    tail -> setNext(nullptr);
+    if (tail != nullptr) {
+        tail -> setNext(nullptr);
+    }
     delete temp;
     setSize(size - 1);
-    return;
+    return returnValue;
 }
 
 void LinkedList::reverse() {
@@ -158,6 +166,10 @@ void LinkedList::reverse() {
 }
 
 void LinkedList::print() {
+    if (getSize() == 0) {
+        cout << "Empty!" << endl << endl;
+        return;
+    }
     Node* temp = head;
     while (temp != nullptr) {
         cout << temp -> getData() << " ";
@@ -168,6 +180,10 @@ void LinkedList::print() {
 }
 
 void LinkedList::printReverse() {
+    if (getSize() == 0) {
+        cout << "Empty!" << endl << endl;
+        return;
+    }
     Node* temp = tail;
     while (temp != nullptr) {
         cout << temp -> getData() << " ";
@@ -175,6 +191,10 @@ void LinkedList::printReverse() {
     }
     cout << endl << endl;
     return;
+}
+
+Node* LinkedList::getHead() {
+    return head;
 }
 
 int LinkedList::getSize() {
