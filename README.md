@@ -45,7 +45,7 @@ The data structure implementation files including these member functions:
         * get the size of the linked list
     * setSize
         * set the size of the linked list
-* [stack.h](stack.hpp)
+* [stack.hpp](stack.hpp)
     * push
         * push an element into the stack
     * pop
