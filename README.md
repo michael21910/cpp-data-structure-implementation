@@ -7,7 +7,7 @@ It's a bg challenge for me, but I will try to do my best!
   
 ## What are these :question:
 The data structure implementation files including these member functions:
-* [node.h](node.h)
+* [node.hpp](node.hpp)
     * getData
         * gets the data of the node
     * setData
@@ -20,7 +20,7 @@ The data structure implementation files including these member functions:
         * gets the previous node of the current node
     * setPrev
         * sets the previous node of the current node
-* [linkedlist.h](linkedlist.h)
+* [linkedlist.hpp](linkedlist.hpp)
     * insert
         * inserts a node to the nth position of the linked list with the data
     * insertFromHead
@@ -39,10 +39,27 @@ The data structure implementation files including these member functions:
         * prints out the data of the linked list in order
     * printReverse
         * prints out the data of the linked list in reverse order without reversing the linked list
+    * getHead
+        * get the head of the linked list
     * getSize
         * get the size of the linked list
     * setSize
         * set the size of the linked list
+* [stack.h](stack.hpp)
+    * push
+        * push an element into the stack
+    * pop
+        * pop an element out of the stack
+    * top
+        * return the data of the first element in the stack
+    * isEmpty
+        * return 0 or 1 if the stack is empty
+    * print
+        * print the stack
+    * getSize
+        * get the size of the stack
+    * setSize
+        * set the size of the stack
 * [main.cpp](main.cpp)
     * including the testing codes
 * TBC...
