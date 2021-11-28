@@ -1,3 +1,6 @@
+#ifndef LINKEDLIST_HPP
+#define LINKEDLIST_HPP
+
 #include "node.hpp"
 #include <iostream>
 using namespace std;
@@ -76,6 +79,7 @@ void LinkedList::insertFromHead(int data) {
         head = newNode;
     }
     setSize(getSize() + 1);
+    return;
 }
 
 void LinkedList::insertFromTail(int data) {
@@ -90,6 +94,7 @@ void LinkedList::insertFromTail(int data) {
         tail = newNode;
     }
     setSize(getSize() + 1);
+    return;
 }
 
 int LinkedList::remove(int n) {
@@ -202,5 +207,8 @@ int LinkedList::getSize() {
 }
 
 void LinkedList::setSize(int _size) {
-    this -> size = _size;
+    size = _size;
+    return;
 }
+
+#endif

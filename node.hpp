@@ -1,3 +1,6 @@
+#ifndef NODE_HPP
+#define NODE_HPP
+
 class Node {
 public:
     Node();
@@ -22,7 +25,7 @@ Node::Node() {
 }
 
 Node::Node(int _data) {
-    this -> data = _data;
+    data = _data;
     next = nullptr;
     prev = nullptr;
 }
@@ -37,7 +40,8 @@ int Node::getData() {
 }
 
 void Node::setData(int _data) {
-    this -> data = _data;
+    data = _data;
+    return;
 }
 
 Node* Node::getNext() {
@@ -45,7 +49,8 @@ Node* Node::getNext() {
 }
 
 void Node::setNext(Node* _next) {
-    this -> next = _next;
+    next = _next;
+    return;
 }
 
 Node* Node::getPrev() {
@@ -53,5 +58,8 @@ Node* Node::getPrev() {
 }
 
 void Node::setPrev(Node* _prev) {
-    this -> prev = _prev;
+    prev = _prev;
+    return;
 }
+
+#endif

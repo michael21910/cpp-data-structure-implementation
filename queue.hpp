@@ -1,17 +1,15 @@
-#ifndef STACK_HPP
-#define STACK_HPP
+#ifndef QUEUE_HPP
+#define QUEUE_HPP
 
 #include "linkedlist.hpp"
-#include <iostream>
-using namespace std;
 
-class Stack : public LinkedList {
+class Queue : public LinkedList {
 public:
-    Stack();
-    ~Stack();
-    void push(int _data);
-    int pop();
-    int top();
+    Queue();
+    ~Queue();
+    void enqueue(int _data);
+    int dequeue();
+    int front();
     bool isEmpty();
     void print();
     int getSize();
@@ -21,22 +19,22 @@ private:
     int size;
 };
 
-Stack::Stack() {
+Queue::Queue() {
     list = new LinkedList();
     size = 0;
 }
 
-Stack::~Stack() {
+Queue::~Queue() {
     delete list;
 }
 
-void Stack::push(int _data) {
-    list -> insertFromHead(_data);
+void Queue::enqueue(int _data) {
+    list -> insertFromTail(_data);
     setSize(getSize() + 1);
     return;
 }
 
-int Stack::pop() {
+int Queue::dequeue() {
     if (isEmpty()) {
         return -1;
     }
@@ -45,28 +43,28 @@ int Stack::pop() {
     return returnValue;
 }
 
-int Stack::top() {
+int Queue::front() {
     if (isEmpty()) {
         return -1;
     }
     return list -> getHead() -> getData();
 }
 
-bool Stack::isEmpty() {
+bool Queue::isEmpty() {
     return getSize() == 0;
 }
 
-void Stack::print() {
+void Queue::print() {
     list -> print();
     return;
 }
 
-int Stack::getSize() {
-    return size;
+int Queue::getSize() {
+    return list -> getSize();
 }
 
-void Stack::setSize(int _size) {
-    size = _size;
+void Queue::setSize(int _size) {
+    list -> setSize(_size);
     return;
 }
 
