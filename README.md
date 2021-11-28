@@ -60,6 +60,21 @@ The data structure implementation files including these member functions:
         * get the size of the stack
     * setSize
         * set the size of the stack
+* [queue.hpp](queue.hpp)
+    * enqueue
+        * enqueue an element into queue
+    * dequeue
+        * dequeue an element out of queue
+    * front
+        * return the data of the first element in the queue
+    * isEmpty
+        * return 0 or 1 if the queue is empty
+    * print
+        * print the queue
+    * getSize
+        * get the size of the queue
+    * setSize
+        * set the size of the queue
 * [main.cpp](main.cpp)
     * including the testing codes
 * TBC...
